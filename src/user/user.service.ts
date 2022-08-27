@@ -9,7 +9,7 @@ import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 
 import { LoginCredentialsDto } from './dto/login-credentials.dto';
-import { UserSubscribeDto } from './dto/user-subscribe.dto';
+import { UserRegisterDto } from './dto/user-register.dto';
 import { UserEntity } from './entities/user.entity';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class UserService {
     private jwtService: JwtService,
   ) {}
 
-  async register(userData: UserSubscribeDto): Promise<Partial<UserEntity>> {
+  async register(userData: UserRegisterDto): Promise<Partial<UserEntity>> {
     // const {username,password,email} =userData;
     const user = this.userRepository.create({
       ...userData,
